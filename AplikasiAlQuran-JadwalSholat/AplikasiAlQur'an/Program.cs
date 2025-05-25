@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AplikasiAlQur_an.FiturDashboard;
+using AplikasiAlQur_an.FiturHafalan;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +13,10 @@ namespace AplikasiAlQur_an
         Exit,
         Form1,
         Form2,
-        AlQuran
+        AlQuran,
+        JadwalSholat,
+        Hafalan,
+        Dashboard
     }
     static class Program
     {
@@ -37,6 +42,15 @@ namespace AplikasiAlQur_an
                 if (form.DialogResult == DialogResult.Retry)
                     return AppState.AlQuran; // lanjut ke AlQuran
 
+                if (form.DialogResult == DialogResult.OK)
+                    return AppState.JadwalSholat; // kembali ke Form2
+
+                if (form.DialogResult == DialogResult.Cancel)
+                    return AppState.Dashboard; // kembali ke Form2
+
+                if (form.DialogResult == DialogResult.Yes)
+                    return AppState.Hafalan; // kembali ke Form2
+
                 if (form.DialogResult == DialogResult.Abort)
                     return AppState.Form1; // kembali ke Form1
 
@@ -52,6 +66,34 @@ namespace AplikasiAlQur_an
                 return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
             }
         }
+
+        static AppState RunJadwalSholat()
+        {
+            using (JadwalSholat form = new JadwalSholat())
+            {
+                Application.Run(form);
+                return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
+            }
+        }
+
+        static AppState RunHafalan()
+        {
+            using (Hafalan form = new Hafalan())
+            {
+                Application.Run(form);
+                return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
+            }
+        }
+
+        static AppState RunDashboard()
+        {
+            using (Dashboard form = new Dashboard())
+            {
+                Application.Run(form);
+                return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
+            }
+        }
+
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -70,6 +112,15 @@ namespace AplikasiAlQur_an
                         break;
                     case AppState.AlQuran:
                         currentState = RunAlQuran();
+                        break;
+                    case AppState.JadwalSholat:
+                        currentState = RunJadwalSholat();
+                        break;
+                    case AppState.Hafalan:
+                        currentState = RunHafalan();
+                        break;
+                    case AppState.Dashboard:
+                        currentState = RunDashboard();
                         break;
                 }
             }
