@@ -51,6 +51,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.TanggalHijri = new System.Windows.Forms.Label();
+            this.Jam = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.Judul = new System.Windows.Forms.Label();
             this.PanahKiri = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
             this.Tanggalan = new System.Windows.Forms.Panel();
             this.Tanggal = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Jam = new System.Windows.Forms.Label();
-            this.TanggalHijri = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -135,7 +135,7 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(32, 257);
+            this.panel3.Location = new System.Drawing.Point(551, 222);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(464, 497);
             this.panel3.TabIndex = 12;
@@ -341,11 +341,34 @@
             this.panel8.Controls.Add(this.TanggalHijri);
             this.panel8.Controls.Add(this.Jam);
             this.panel8.Controls.Add(this.label15);
-            this.panel8.Location = new System.Drawing.Point(32, 107);
+            this.panel8.Location = new System.Drawing.Point(551, 72);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(464, 100);
             this.panel8.TabIndex = 14;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // TanggalHijri
+            // 
+            this.TanggalHijri.AutoSize = true;
+            this.TanggalHijri.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TanggalHijri.Location = new System.Drawing.Point(173, 35);
+            this.TanggalHijri.Name = "TanggalHijri";
+            this.TanggalHijri.Size = new System.Drawing.Size(96, 38);
+            this.TanggalHijri.TabIndex = 14;
+            this.TanggalHijri.Text = "label8";
+            this.TanggalHijri.Click += new System.EventHandler(this.TanggalHijri_Click);
+            // 
+            // Jam
+            // 
+            this.Jam.AutoSize = true;
+            this.Jam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Jam.Location = new System.Drawing.Point(317, 2);
+            this.Jam.Name = "Jam";
+            this.Jam.Size = new System.Drawing.Size(118, 23);
+            this.Jam.TabIndex = 13;
+            this.Jam.Text = "00:00:00 WIB";
+            this.Jam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Jam.Click += new System.EventHandler(this.Jam_Click);
             // 
             // label15
             // 
@@ -410,7 +433,7 @@
             this.Tanggalan.Controls.Add(this.PanahKiri);
             this.Tanggalan.Controls.Add(this.PanahKanan);
             this.Tanggalan.Controls.Add(this.dateTimePicker1);
-            this.Tanggalan.Location = new System.Drawing.Point(75, 205);
+            this.Tanggalan.Location = new System.Drawing.Point(594, 170);
             this.Tanggalan.Name = "Tanggalan";
             this.Tanggalan.Size = new System.Drawing.Size(374, 50);
             this.Tanggalan.TabIndex = 16;
@@ -430,29 +453,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Jam
-            // 
-            this.Jam.AutoSize = true;
-            this.Jam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Jam.Location = new System.Drawing.Point(317, 2);
-            this.Jam.Name = "Jam";
-            this.Jam.Size = new System.Drawing.Size(118, 23);
-            this.Jam.TabIndex = 13;
-            this.Jam.Text = "00:00:00 WIB";
-            this.Jam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Jam.Click += new System.EventHandler(this.Jam_Click);
-            // 
-            // TanggalHijri
-            // 
-            this.TanggalHijri.AutoSize = true;
-            this.TanggalHijri.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TanggalHijri.Location = new System.Drawing.Point(173, 35);
-            this.TanggalHijri.Name = "TanggalHijri";
-            this.TanggalHijri.Size = new System.Drawing.Size(96, 38);
-            this.TanggalHijri.TabIndex = 14;
-            this.TanggalHijri.Text = "label8";
-            this.TanggalHijri.Click += new System.EventHandler(this.TanggalHijri_Click);
             // 
             // JadwalSholat
             // 
