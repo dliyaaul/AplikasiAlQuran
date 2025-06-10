@@ -82,5 +82,10 @@ namespace AplikasiAlQur_an
         {
 
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

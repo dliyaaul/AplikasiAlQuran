@@ -13,16 +13,14 @@ namespace AplikasiAlQur_an.FiturHafalan
         private List<Surah> _allSurahs; // Menyimpan semua data Surah yang dimuat dari API
         private readonly HttpClient _httpClient; // Gunakan satu instance HttpClient untuk menghindari socket exhaustion
 
-        // URL API bisa dikonfigurasi, misalnya dari file konfigurasi aplikasi
+        // URL API 
         private const string ApiSurahUrl = "https://equran.id/api/surat";
 
         public Hafalan()
         {
             InitializeComponent();
             _httpClient = new HttpClient(); // Inisialisasi HttpClient sekali
-            // Pastikan event SelectedIndexChanged sudah terhubung di Designer:
-            // comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+   
         }
 
         private async void Hafalan_Load(object sender, EventArgs e)
