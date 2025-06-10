@@ -20,7 +20,6 @@ namespace AplikasiAlQur_an.FiturHafalan
         {
             InitializeComponent();
             _httpClient = new HttpClient(); // Inisialisasi HttpClient sekali
-   
         }
 
         private async void Hafalan_Load(object sender, EventArgs e)
