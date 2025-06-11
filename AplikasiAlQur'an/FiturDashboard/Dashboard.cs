@@ -22,5 +22,10 @@ namespace AplikasiAlQur_an.FiturDashboard
             this.DialogResult = DialogResult.Ignore;
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
