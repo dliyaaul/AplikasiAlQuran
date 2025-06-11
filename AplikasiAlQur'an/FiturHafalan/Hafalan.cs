@@ -4,50 +4,46 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using AplikasiAlQur_an.FiturAlQuran; // Menggunakan class Surah dari namespace ini
+using AplikasiAlQur_an.FiturAlQuran;
+using AplikasiAlQur_an.FiturDashboard;
 
 namespace AplikasiAlQur_an.FiturHafalan
 {
     public partial class Hafalan : Form
     {
-        private List<Surah> _allSurahs; // Menyimpan semua data Surah yang dimuat dari API
-        private readonly HttpClient _httpClient; // Gunakan satu instance HttpClient untuk menghindari socket exhaustion
+        // ----------------------------------------------------
+        // Tambahan untuk Komunikasi dengan Dashboard (Event)
+        // ----------------------------------------------------
+        public delegate void HafalanSavedEventHandler(object sender, HafalanEntry e);
+        public event HafalanSavedEventHandler OnHafalanSaved;
+        // ----------------------------------------------------
 
-        // URL API 
+        private List<Surah> _allSurahs;
+        private readonly HttpClient _httpClient;
         private const string ApiSurahUrl = "https://equran.id/api/surat";
 
         public Hafalan()
         {
             InitializeComponent();
-            _httpClient = new HttpClient(); // Inisialisasi HttpClient sekali
-
+            _httpClient = new HttpClient();
         }
 
         private async void Hafalan_Load(object sender, EventArgs e)
         {
-            // Panggil metode asinkron untuk memuat data Surah
             await LoadAllSurahsAsync();
-
-            // Setelah semua Surah dimuat, isi ComboBox Surah awal
             InitializeSurahComboBoxes();
-
-            // Inisialisasi ComboBox ayat setelah Surah terpilih
             PopulateAyatForMulaiSurah();
             PopulateAyatForHinggaSurah();
         }
 
-        // Metode untuk memuat semua data Surah dari API
         private async Task LoadAllSurahsAsync()
         {
             try
             {
-                // Menggunakan API: Melakukan panggilan HTTP GET
                 HttpResponseMessage response = await _httpClient.GetAsync(ApiSurahUrl);
-                response.EnsureSuccessStatusCode(); // Akan melempar HttpRequestException jika status kode bukan sukses
+                response.EnsureSuccessStatusCode();
 
                 string jsonResponse = await response.Content.ReadAsStringAsync();
-
-                // Code Reuse/Library: Menggunakan Newtonsoft.Json untuk deserialisasi
                 _allSurahs = JsonConvert.DeserializeObject<List<Surah>>(jsonResponse);
 
                 if (_allSurahs == null || _allSurahs.Count == 0)
@@ -58,7 +54,7 @@ namespace AplikasiAlQur_an.FiturHafalan
             catch (HttpRequestException httpEx)
             {
                 MessageBox.Show($"Kesalahan jaringan saat memuat Surah: {httpEx.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _allSurahs = new List<Surah>(); // Inisialisasi kosong jika terjadi kesalahan
+                _allSurahs = new List<Surah>();
             }
             catch (JsonException jsonEx)
             {
@@ -72,27 +68,21 @@ namespace AplikasiAlQur_an.FiturHafalan
             }
         }
 
-        // Metode untuk mengisi ComboBox Surah dan mengatur nilai awal
         private void InitializeSurahComboBoxes()
         {
             if (_allSurahs == null || _allSurahs.Count == 0) return;
 
-            // Parameterization/Generics: Menggunakan DataSource dan properti untuk display/value
-            // Untuk comboBox1 (Mulai Surah)
             comboBox1.DisplayMember = "nama_latin";
             comboBox1.ValueMember = "nomor";
-            comboBox1.DataSource = new List<Surah>(_allSurahs); // Buat salinan agar ComboBox memiliki DataSource independen
+            comboBox1.DataSource = new List<Surah>(_allSurahs);
             comboBox1.SelectedIndex = 0;
 
-            // Untuk comboBox3 (Hingga Surah)
             comboBox3.DisplayMember = "nama_latin";
             comboBox3.ValueMember = "nomor";
-            comboBox3.DataSource = new List<Surah>(_allSurahs); // Buat salinan lagi
-            // Secara default pilih Surah terakhir untuk "Hingga Surah"
+            comboBox3.DataSource = new List<Surah>(_allSurahs);
             comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
         }
 
-        // Metode untuk mengisi ComboBox ayat berdasarkan Surah yang dipilih
         private void PopulateAyatComboBox(ComboBox ayatComboBox, Surah selectedSurah, bool selectLast = false)
         {
             ayatComboBox.Items.Clear();
@@ -109,40 +99,106 @@ namespace AplikasiAlQur_an.FiturHafalan
             }
         }
 
-        // Event handler untuk ComboBox Mulai Surah
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateAyatForMulaiSurah();
         }
 
-        // Event handler untuk ComboBox Hingga Surah
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateAyatForHinggaSurah();
         }
 
-        // Wrapper untuk mengisi ayat mulai
         private void PopulateAyatForMulaiSurah()
         {
             if (comboBox1.SelectedItem is Surah selectedSurahMulai)
             {
-                PopulateAyatComboBox(comboBox4, selectedSurahMulai, false); // Pilih ayat pertama
+                PopulateAyatComboBox(comboBox4, selectedSurahMulai, false);
             }
         }
 
-        // Wrapper untuk mengisi ayat hingga
         private void PopulateAyatForHinggaSurah()
         {
             if (comboBox3.SelectedItem is Surah selectedSurahHingga)
             {
-                PopulateAyatComboBox(comboBox2, selectedSurahHingga, true); // Pilih ayat terakhir
+                PopulateAyatComboBox(comboBox2, selectedSurahHingga, true);
             }
         }
 
-        // Metode yang sudah ada
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Ignore;
+            this.Close();
+        }
+
+        // ----------------------------------------------------
+        // Logic saat tombol "Mulai Hafalan" diklik
+        // ----------------------------------------------------
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 1. Ambil semua data dari kontrol UI
+            DateTime tanggalMulai = dateTimePicker1.Value;
+            DateTime tanggalBerakhir = dateTimePicker2.Value;
+
+            Surah surahMulai = comboBox1.SelectedItem as Surah;
+            int ayatMulai = Convert.ToInt32(comboBox4.SelectedItem);
+
+            Surah surahHingga = comboBox3.SelectedItem as Surah;
+            int ayatHingga = Convert.ToInt32(comboBox2.SelectedItem);
+
+            // 2. Lakukan Validasi (Penting!)
+            if (surahMulai == null || surahHingga == null)
+            {
+                MessageBox.Show("Harap pilih Surah mulai dan Surah hingga.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (comboBox4.SelectedItem == null || comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Harap pilih Ayat mulai dan Ayat hingga.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tanggalMulai > tanggalBerakhir)
+            {
+                MessageBox.Show("Tanggal mulai tidak boleh melebihi tanggal berakhir.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validasi logika rentang surah/ayat
+            if (surahMulai.nomor > surahHingga.nomor)
+            {
+                MessageBox.Show("Surah Mulai tidak boleh setelah Surah Hingga.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (surahMulai.nomor == surahHingga.nomor)
+            {
+                if (ayatMulai > ayatHingga)
+                {
+                    MessageBox.Show("Jika Surah sama, Ayat Mulai tidak boleh setelah Ayat Hingga.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // 3. Buat objek HafalanEntry
+            HafalanEntry newHafalan = new HafalanEntry
+            {
+                TanggalMulai = tanggalMulai,
+                TanggalBerakhir = tanggalBerakhir,
+                SurahMulaiNama = surahMulai.nama_latin,
+                SurahMulaiNomor = surahMulai.nomor,
+                AyatMulai = ayatMulai,
+                SurahHinggaNama = surahHingga.nama_latin,
+                SurahHinggaNomor = surahHingga.nomor,
+                AyatHingga = ayatHingga
+            };
+
+            // 4. Picu Event untuk memberi tahu Dashboard
+            // Pastikan event OnHafalanSaved tidak null sebelum dipicu
+            OnHafalanSaved?.Invoke(this, newHafalan);
+
+            // 5. Beri umpan balik ke pengguna
+            MessageBox.Show("Hafalan berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // 6. Tutup form Hafalan setelah data disimpan
             this.Close();
         }
 
@@ -154,9 +210,8 @@ namespace AplikasiAlQur_an.FiturHafalan
         private void panel2_Paint(object sender, PaintEventArgs e) { }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e) { }
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { } // Logika sudah dihandle di PopulateAyatForHinggaSurah
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e) { } // Logika sudah dihandle di PopulateAyatForMulaiSurah
-        private void button2_Click(object sender, EventArgs e) { }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
         private void label3_Click(object sender, EventArgs e) { }
         private void label4_Click(object sender, EventArgs e) { }
