@@ -36,6 +36,7 @@ C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\Aplika
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQuran-1201230024_Dliyaaul\AplikasiAlQur'an\obj\Debug\Aplikasi.F084010F.Up2Date
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQuran-1201230024_Dliyaaul\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.exe
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQuran-1201230024_Dliyaaul\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.pdb
+<<<<<<< HEAD
 D:\Document Matkul\SEMESTER 4\AplikasiAlQur'an\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FiturHafalan.DashboardHafalan.resources
 D:\Document Matkul\SEMESTER 4\AplikasiAlQur'an\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FiturDoaTahlil.DoaTahlil.resources
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQur'an\AplikasiAlQur'an\bin\Debug\AplikasiAlQur'an.exe.config
@@ -58,3 +59,25 @@ C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\Aplika
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQur'an\AplikasiAlQur'an\obj\Debug\Aplikasi.F084010F.Up2Date
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQur'an\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.exe
 C:\Users\Axioo Pongo\Documents\SEMESTER 4\Kontruksi Perangkat Lunak\tugas\AplikasiAlQur'an\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.pdb
+=======
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\bin\Debug\AplikasiAlQur'an.exe.config
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\bin\Debug\AplikasiAlQur'an.exe
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\bin\Debug\AplikasiAlQur'an.pdb
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\bin\Debug\Newtonsoft.Json.dll
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\bin\Debug\Newtonsoft.Json.xml
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.csproj.AssemblyReference.cache
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.AlQuran.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FiturAlQuran.FormJuz.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FiturDashboard.Dashboard.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FiturHafalan.Hafalan.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.JadwalSholat.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.Form1.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.Form2.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.FormAyat.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur_an.Properties.Resources.resources
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.csproj.GenerateResource.cache
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.csproj.CoreCompileInputs.cache
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\Aplikasi.F084010F.Up2Date
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.exe
+C:\Randy's\College\Semester 4\Kontruksi Perangkat Lunak\Aplikasi Quran Main\AplikasiAlQur'an\obj\Debug\AplikasiAlQur'an.pdb
+>>>>>>> d2a87a9981b5cc1e0080e8861d0d36260192ba74
