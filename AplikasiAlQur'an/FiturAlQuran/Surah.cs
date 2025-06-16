@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,28 @@ namespace AplikasiAlQur_an
 {
     public class Surah
     {
-        public int nomor { get; set; }
-        public string nama { get; set; }
-        public string nama_latin { get; set; }
-        public int jumlah_ayat { get; set; }
-        public string tempat_turun { get; set; }
-        public string arti { get; set; }        
+
+        [JsonProperty("nomor")]
+        public int Nomor { get; set; }
+
+        [JsonProperty("nama")]
+        public string Nama { get; set; }
+
+        [JsonProperty("nama_latin")]
+        public string NamaLatin { get; set; }
+
+        [JsonProperty("jumlah_ayat")]
+        public int JumlahAyat { get; set; }
+
+        [JsonProperty("tempat_turun")]
+        public string TempatTurun { get; set; }
+
+        [JsonProperty("arti")]
+        public string Arti { get; set; }
+
+        public override string ToString()
+        {
+            return this.NamaLatin;
+        }
     }
 }

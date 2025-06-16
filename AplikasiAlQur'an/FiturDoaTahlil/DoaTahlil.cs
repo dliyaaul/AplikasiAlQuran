@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AplikasiAlQur_an.FiturDashboard
+namespace AplikasiAlQur_an.FiturDoaTahlil
 {
-    public partial class Dashboard: Form
+    public partial class DoaTahlil: Form
     {
-        public Dashboard()
+        public DoaTahlil()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Ignore;
-            this.Close();
         }
     }
 }
