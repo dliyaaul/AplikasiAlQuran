@@ -87,7 +87,7 @@ namespace AplikasiAlQur_an
                     listSurah.Items.Clear();
                     foreach (var surah in allSurah)
                     {
-                        listSurah.Items.Add($"{surah.nomor}. {surah.nama_latin} - {surah.arti}");
+                        listSurah.Items.Add($"{surah.Nomor}. {surah.NamaLatin} - {surah.Arti}");
                     }
                 }
                 catch (Exception ex)
@@ -101,13 +101,13 @@ namespace AplikasiAlQur_an
         {
             string keyword = txtSearchSurah.Text.Trim().ToLower();
             var filteredSurah = allSurah
-            .Where(s => s.nama_latin.ToLower().Contains(keyword))
+            .Where(s => s.NamaLatin.ToLower().Contains(keyword))
             .ToList();
 
             listSurah.Items.Clear();
             foreach (var surah in filteredSurah)
             {
-                listSurah.Items.Add($"{surah.nomor}. {surah.nama_latin} - {surah.arti}");
+                listSurah.Items.Add($"{surah.Nomor}. {surah.NamaLatin} - {surah.Arti}");
             }
 
             if (filteredSurah.Count == 0)

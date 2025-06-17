@@ -113,7 +113,8 @@ namespace AplikasiAlQur_an.FiturDoaTahlil
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            this.DialogResult = DialogResult.Ignore;
+            this.Close();
         }
     }
 }

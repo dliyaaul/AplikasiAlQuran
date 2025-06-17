@@ -87,6 +87,7 @@
       <DependentUpon>DashboardHafalan.cs</DependentUpon>
     </Compile>
     <Compile Include="FiturHafalan\HafalanData.cs" />
+    <Compile Include="FiturHafalan\HafalanStatus.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
