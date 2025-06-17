@@ -116,5 +116,11 @@ namespace AplikasiAlQur_an.FiturDoaTahlil
             this.DialogResult = DialogResult.Ignore;
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Ignore;
+            this.Close();
+        }
     }
 }
