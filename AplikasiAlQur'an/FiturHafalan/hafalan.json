@@ -1,20 +1,29 @@
 [
   {
-    "TanggalMulai": "2025-06-15T21:38:11.401166+07:00",
-    "TanggalAkhir": "2025-06-15T21:38:11.3831007+07:00",
+    "TanggalMulai": "2025-06-16T15:23:53.2365283+07:00",
+    "TanggalAkhir": "2025-06-16T15:23:53.2321214+07:00",
     "SurahAwal": "Al-Fatihah",
     "SurahAkhir": "An-Nas",
     "AyatAwal": 1,
     "AyatAkhir": 6,
-    "Status": "Selesai"
+    "Status": "Belum Selesai"
   },
   {
-    "TanggalMulai": "2025-06-15T21:38:11.401166+07:00",
-    "TanggalAkhir": "2025-06-15T21:38:11.3831007+07:00",
+    "TanggalMulai": "2025-06-16T20:15:11.809066+07:00",
+    "TanggalAkhir": "2025-06-16T20:15:11.809066+07:00",
     "SurahAwal": "Al-Fatihah",
     "SurahAkhir": "An-Nas",
     "AyatAwal": 1,
     "AyatAkhir": 6,
+    "Status": "Belum Selesai"
+  },
+  {
+    "TanggalMulai": "2025-06-17T12:31:43.47532+07:00",
+    "TanggalAkhir": "2025-06-17T12:31:43.4675037+07:00",
+    "SurahAwal": "Al-Fatihah",
+    "SurahAkhir": "Al-Qadr",
+    "AyatAwal": 1,
+    "AyatAkhir": 5,
     "Status": "Belum Selesai"
   }
 ]

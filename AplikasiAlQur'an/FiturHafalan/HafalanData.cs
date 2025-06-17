@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AplikasiAlQur_an.FiturHafalan
 {
@@ -14,6 +10,7 @@ namespace AplikasiAlQur_an.FiturHafalan
         public String SurahAkhir { get; set; }
         public int AyatAwal { get; set; }
         public int AyatAkhir { get; set; }
-        public String Status { get; set; }
+
+        public HafalanStatus Status { get; set; }
     }
 }
