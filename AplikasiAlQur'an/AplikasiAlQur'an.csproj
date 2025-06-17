@@ -71,18 +71,22 @@
       <DependentUpon>FormJuz.cs</DependentUpon>
     </Compile>
     <Compile Include="FiturAlQuran\Surah.cs" />
-    <Compile Include="FiturDashboard\Dashboard.cs">
+    <Compile Include="FiturDoaTahlil\Doa.cs" />
+    <Compile Include="FiturDoaTahlil\DoaTahlil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FiturDashboard\Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="FiturDoaTahlil\DoaTahlil.Designer.cs">
+      <DependentUpon>DoaTahlil.cs</DependentUpon>
     </Compile>
-    <Compile Include="FiturHafalan\Hafalan.cs">
+    <Compile Include="FiturDoaTahlil\Tahlil.cs" />
+    <Compile Include="FiturDoaTahlil\TahlilResponse.cs" />
+    <Compile Include="FiturHafalan\DashboardHafalan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FiturHafalan\Hafalan.Designer.cs">
-      <DependentUpon>Hafalan.cs</DependentUpon>
+    <Compile Include="FiturHafalan\DashboardHafalan.Designer.cs">
+      <DependentUpon>DashboardHafalan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FiturHafalan\HafalanData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +115,11 @@
     <EmbeddedResource Include="FiturAlQuran\FormJuz.resx">
       <DependentUpon>FormJuz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FiturDashboard\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="FiturDoaTahlil\DoaTahlil.resx">
+      <DependentUpon>DoaTahlil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FiturHafalan\Hafalan.resx">
-      <DependentUpon>Hafalan.cs</DependentUpon>
+    <EmbeddedResource Include="FiturHafalan\DashboardHafalan.resx">
+      <DependentUpon>DashboardHafalan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FiturJadwalSholat\JadwalSholat.resx">
       <DependentUpon>JadwalSholat.cs</DependentUpon>
