@@ -211,9 +211,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label9.Location = new System.Drawing.Point(10, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 31);
+            this.label9.Size = new System.Drawing.Size(162, 31);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Dashboard";
+            this.label9.Text = "Doa dan Tahlil";
             // 
             // label10
             // 
@@ -259,6 +259,7 @@
             this.label12.Size = new System.Drawing.Size(87, 62);
             this.label12.TabIndex = 2;
             this.label12.Text = "🧠";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // button1
             // 
@@ -290,6 +291,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿using AplikasiAlQur_an.FiturDashboard;
+﻿using AplikasiAlQur_an.FiturDoaTahlil;
 using AplikasiAlQur_an.FiturHafalan;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,8 @@ namespace AplikasiAlQur_an
         AlQuran,
         JadwalSholat,
         Hafalan,
-        Dashboard
+        DashboardHafalan,
+        DoaTahlil
     }
     static class Program
     {
@@ -46,10 +47,10 @@ namespace AplikasiAlQur_an
                     return AppState.JadwalSholat; // kembali ke Form2
 
                 if (form.DialogResult == DialogResult.Cancel)
-                    return AppState.Dashboard; // kembali ke Form2
+                    return AppState.DoaTahlil; // kembali ke Form2
 
                 if (form.DialogResult == DialogResult.Yes)
-                    return AppState.Hafalan; // kembali ke Form2
+                    return AppState.DashboardHafalan; // kembali ke Form2
 
                 if (form.DialogResult == DialogResult.Abort)
                     return AppState.Form1; // kembali ke Form1
@@ -78,16 +79,16 @@ namespace AplikasiAlQur_an
 
         static AppState RunHafalan()
         {
-            using (Hafalan form = new Hafalan())
+            using (DashboardHafalan form = new DashboardHafalan())
             {
                 Application.Run(form);
                 return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
             }
         }
 
-        static AppState RunDashboard()
+        static AppState RunDoaTahlil()
         {
-            using (Dashboard form = new Dashboard())
+            using (DoaTahlil form = new DoaTahlil())
             {
                 Application.Run(form);
                 return form.DialogResult == DialogResult.Ignore ? AppState.Form2 : AppState.Exit;
@@ -101,7 +102,7 @@ namespace AplikasiAlQur_an
             AppState currentState = AppState.Form1;
             
             while (currentState != AppState.Exit)
-            {
+            {  
                 switch (currentState)
                 {
                     case AppState.Form1:
@@ -116,11 +117,11 @@ namespace AplikasiAlQur_an
                     case AppState.JadwalSholat:
                         currentState = RunJadwalSholat();
                         break;
-                    case AppState.Hafalan:
+                    case AppState.DashboardHafalan:
                         currentState = RunHafalan();
                         break;
-                    case AppState.Dashboard:
-                        currentState = RunDashboard();
+                    case AppState.DoaTahlil:
+                        currentState = RunDoaTahlil();
                         break;
                 }
             }
