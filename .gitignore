@@ -1,1 +1,5 @@
 .vs/
+.vscode/
+# Folder build dan cache
+AplikasiAlQur'an/bin/
+AplikasiAlQur'an/obj/
